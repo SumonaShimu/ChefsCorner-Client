@@ -22,17 +22,12 @@
 }
 
 .banner-container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
-}
-
-.banner-overlay {
-    height: 100%;
-    /* background-image: linear-gradient(to top, rgba(75, 58, 50, 0.671), rgba(0, 0, 0, 0.708)); */
 }
 
 .banner-text {
