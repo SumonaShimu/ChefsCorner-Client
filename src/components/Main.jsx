@@ -4,7 +4,7 @@ import Banner from './Banner';
 
 const Main = () => {
     return (
-        <div style={{height:'80vh'}}>
+        <div>
             <Banner></Banner>
         </div>
     );

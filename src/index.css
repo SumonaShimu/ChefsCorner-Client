@@ -1,0 +1,35 @@
+.links {
+    text-decoration: none;
+    color: white;
+}
+
+.links:hover {
+    background-color: orange;
+    color: rgb(100, 1, 1);
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.banner-container {
+    height: 90vh;
+    width: 100%;
+    background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+
+.banner-overlay {
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(75, 58, 50, 0.671), rgba(0, 0, 0, 0.708));
+}
+
+.banner-text {
+    text-align: center;
+    color: #fff;
+}
+.banner-title{
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px #dc7e1a;
+}

@@ -17,9 +17,9 @@ const Header = () => {
             MuriGhonto
           </Navbar.Brand>
                 <Nav className="d-flex gap-4">
-                    <Link to='/' className='text-decoration-none'>Home</Link>
-                    <Link to='/login' className='text-decoration-none'>Login</Link>
-                    <Link to='/blog' className='text-decoration-none'>Blog</Link>
+                    <Link to='/' className='links'>Home</Link>
+                    <Link to='/login' className='links'>Login</Link>
+                    <Link to='/blog' className='links'>Blog</Link>
                 </Nav>
             </Container>
         </Navbar>
