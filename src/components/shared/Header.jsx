@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar className='bgred'>
             <Container>
             <Navbar.Brand href="#home">
             <img
@@ -14,7 +14,7 @@ const Header = () => {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-            MuriGhonto
+            <span className='fw-bold'>MuriGhonto</span>
           </Navbar.Brand>
                 <Nav className="d-flex gap-4">
                     <Link to='/' className='links'>Home</Link>

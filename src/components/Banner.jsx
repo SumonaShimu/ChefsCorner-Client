@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Container} from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 const Banner = () => {
     return (
@@ -10,7 +10,7 @@ const Banner = () => {
                     <h1 className='banner-title'>Get the recepies <br></br>Make The Food You Love</h1>
                     <p >Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there</p>
                     <Button variant="outline-warning">Get Satrted</Button>
-                    <Button variant="warning" className='ms-3'>Whats New Today?</Button>
+                    <Button variant="warning" className='m-3'>Whats New Today?</Button>
                 </div>
             </div>
         </div>
