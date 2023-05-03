@@ -1,3 +1,9 @@
+.mainBg{
+    background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
 .bgred{
  background-color: #ffffff;
  min-height: 100px;
@@ -7,7 +13,12 @@
     height: 100%;
     width: 100%;
 }
-
+.bggrey{
+    background-color: rgba(11, 19, 22, 0.441);
+}
+.bgReg{
+    background-color: rgba(17, 26, 43, 0.726);
+}
 li{
     list-style: none;
 }
@@ -68,4 +79,18 @@ li{
         text-align: center;
     }
   }
+  /* login */
+  .loginbg{
+    background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/right.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+  }
+  .regBg{
+    background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+  }
+
 

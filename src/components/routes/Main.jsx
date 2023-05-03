@@ -6,7 +6,7 @@ import Chefcards from '../Chefcards';
 
 const Main = () => {
     return (
-        <div>
+        <div className='mainBg'>
             <Banner></Banner>
             <Aboutus></Aboutus>
             <Chefcards></Chefcards>
