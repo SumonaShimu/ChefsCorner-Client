@@ -47,13 +47,16 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Remember me" />
                     </Form.Group>
-                    <Button variant="outline-warning" type="submit" className='rounded-pill px-5 mx-auto d-block'>
-                        Login
-                    </Button>
+                    <Button variant="outline-warning" type="submit" className='rounded-pill px-5 mx-auto d-block'> Login </Button>
                     <br />
                     <small className='d-block text-center'>
                         New to this website? Please <Link to='/register'>Register</Link>
                     </small>
+                    <br />
+                    <Button variant="outline-warning" onClick={handleGoogleLogin} className='w-100 rounded-pill px-5 my-3 mx-auto d-block'> Login with Google </Button>
+                  
+                    <Button variant="outline-warning" onClick={handleGithubLogin} className='w-100 rounded-pill px-5 mx-auto d-block'> Login with GitHub</Button>
+                    
                 </Form>
             </Col>
             

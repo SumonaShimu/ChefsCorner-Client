@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Banner from '../Banner';
 import Aboutus from '../Aboutus';
 import Chefcards from '../Chefcards';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (

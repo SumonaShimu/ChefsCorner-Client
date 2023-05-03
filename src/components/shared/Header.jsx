@@ -18,8 +18,8 @@ const Header = () => {
           </Navbar.Brand>
                 <Nav className="d-flex gap-4">
                     <Link to='/' className='links'>Home</Link>
-                    <Link to='/login' className='links'>Login</Link>
                     <Link to='/blog' className='links'>Blog</Link>
+                    <Link to='/login' className='links'>Login</Link>
                 </Nav>
             </Container>
         </Navbar>

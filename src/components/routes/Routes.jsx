@@ -15,7 +15,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Main></Main>,
-        loader: () => fetch('https://project-murighonto-server-sumonashimu.vercel.app/chefs')
+        loader: () => fetch('https://project-murighonto-server-sumonashimu.vercel.app/chefs').then(res=>res.json())
       },
       {
         path: "/login",
@@ -33,12 +33,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/chefs",
-    element: <Main></Main>,
+    element: <Layout></Layout>,
     children: [
       {
         path: ":id",
         element: <Recepies></Recepies>,
-        loader:(params)=>fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${id}`)
+        loader: ({params}) => fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${params.id}`)
       }
     ]
   }

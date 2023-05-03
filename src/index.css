@@ -1,27 +1,33 @@
-.mainBg{
+.mainBg {
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
 }
-.bgred{
- background-color: #ffffff;
- min-height: 100px;
+
+.bgred {
+    background-color: #ffffff;
+    min-height: 100px;
 }
-.img-fit{
+
+.img-fit {
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
+
 .bggrey{
     background-color: rgba(11, 19, 22, 0.441);
 }
-.bgReg{
+
+.bgReg {
     background-color: rgba(17, 26, 43, 0.726);
 }
-li{
+
+li {
     list-style: none;
 }
+
 .links {
     text-decoration: none;
     color: rgb(255, 0, 0);
@@ -41,56 +47,67 @@ li{
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
 }
 
 .banner-text {
     text-align: center;
 }
-.banner-title{
+
+.banner-title {
     font-size: 3rem;
     font-weight: bold;
     text-shadow: 1px 1px rgb(255, 0, 0);
 }
 
 /* aboutUs */
-.about{
+.about {
     display: flex;
     margin: 0 auto;
 }
 
 /* chef cards */
-.card-img{
+.card-img {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     object-fit: contain;
 }
 
-@media screen and (max-width: 768px) {
-    .text-warning{
-        text-shadow: 1px 1px rgb(0, 0, 0) !important;
-    }
-    .banner-title{
-        text-shadow: 1px 1px rgb(255, 81, 0);
-    }
-    .about{
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-  }
-  /* login */
-  .loginbg{
+
+/* login */
+.loginbg {
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/right.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:center;
-  }
-  .regBg{
+    background-position: center;
+}
+/* registration */
+.regBg {
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg4.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:center;
-  }
+    background-position: center;
+}
 
+/* recepies */
+.recepies-img {
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+}
+/* media query */
+@media screen and (max-width: 768px) {
+    .text-warning {
+        text-shadow: 1px 1px rgb(0, 0, 0) !important;
+    }
 
+    .banner-title {
+        text-shadow: 1px 1px rgb(255, 81, 0);
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}
