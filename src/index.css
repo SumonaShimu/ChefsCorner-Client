@@ -8,6 +8,9 @@
     width: 100%;
 }
 
+li{
+    list-style: none;
+}
 .links {
     text-decoration: none;
     color: rgb(255, 0, 0);
@@ -45,6 +48,14 @@
     margin: 0 auto;
 }
 
+/* chef cards */
+.card-img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
 @media screen and (max-width: 768px) {
     .text-warning{
         text-shadow: 1px 1px rgb(0, 0, 0) !important;
@@ -57,3 +68,4 @@
         text-align: center;
     }
   }
+

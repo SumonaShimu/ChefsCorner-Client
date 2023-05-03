@@ -10,11 +10,11 @@ const Header = () => {
             <img
               alt=""
               src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/logo.png"
-              width="30"
-              height="30"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
             />{' '}
-            <span className='fw-bold'>MuriGhonto</span>
+            <h2 className='d-inline-block fw-bold'>MuriGhonto</h2>
           </Navbar.Brand>
                 <Nav className="d-flex gap-4">
                     <Link to='/' className='links'>Home</Link>
