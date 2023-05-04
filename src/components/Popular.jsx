@@ -1,47 +1,44 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
-
+import React, { useState } from 'react';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import Marquee from "react-fast-marquee";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 const Popular = () => {
+    const [recepies, setRecepies] = useState([])
+    fetch('https://project-murighonto-server-sumonashimu.vercel.app/recepies')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            setRecepies(data)
+        })
+        .catch(error => console.error(error));
+    let newrecepe;
+    if (recepies) newrecepe = recepies.slice(0, 6);
     return (
-        <Carousel fade>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100 "
-                    src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000"
-                    alt="First slide"
-                />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000"
-                    alt="Second slide"
-                />
-
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000"
-                    alt="Third slide"
-                />
-
-                <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                </Carousel.Caption>
-            </Carousel.Item>
-        </Carousel>
+        <Container className='text-center d-block my-5'>
+            <h1 className='banner-title my-4'>Popular on Our Site</h1>
+            <p>Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there</p>
+            <Row xs={2} md={3} className="g-4" style={{ border: '0' }}>
+                {newrecepe.map(item => (
+                    <Col className='recepe-card' >
+                        <Card className='h-100' style={{ border: '0' }}>
+                            <Card.Img variant="top" src={item.picture} className='popular-img mx-auto' />
+                            <Card.Body>
+                                <Card.Title>{item.name}</Card.Title>
+                                <Card.Text>
+                                    <FaStar color={'orange'}></FaStar>
+                                    <FaStar color={'orange'}></FaStar>
+                                    <FaStar color={'orange'}></FaStar>
+                                    <FaStar color={'orange'}></FaStar>
+                                    {(item.rating >= 4.5) ? <FaStarHalfAlt color={'orange'}></FaStarHalfAlt> : <></>}
+                                    <small>( {item.rating} )</small>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+                <Button variant='warning'>Show All Recepies</Button>
+        </Container>
     );
 };
 

@@ -4,6 +4,7 @@ import Banner from '../Banner';
 import Aboutus from '../Aboutus';
 import Chefcards from '../Chefcards';
 import { Outlet } from 'react-router-dom';
+import Popular from '../Popular';
 
 const Main = () => {
     return (
@@ -11,6 +12,7 @@ const Main = () => {
             <Banner></Banner>
             <Aboutus></Aboutus>
             <Chefcards></Chefcards>
+            <Popular></Popular>
         </div>
     );
 };

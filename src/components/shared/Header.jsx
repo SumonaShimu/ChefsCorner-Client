@@ -23,7 +23,7 @@ const Header = () => {
                         height="50"
                         className="d-inline-block align-top"
                     />
-                    <h2 className='text-white fw-bold'>MuriGhonto</h2>
+                    <h2 className='text-white fw-bold nav-link'>Muri<span className="text-warning">Ghonto</span></h2>
                 </Navbar.Brand>
                 <Nav className="d-flex gap-4">
                     <Button variant='warning'><Link to='/' className='links'>Home</Link></Button>

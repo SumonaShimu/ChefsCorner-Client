@@ -26,7 +26,7 @@ const Chefcards = () => {
                                     <li><GiForkKnifeSpoon color={'orange'}></GiForkKnifeSpoon> {chef.recipes} recepies </li>
                                     <li><FcLike></FcLike> {chef.likes} likes</li>
                                 </Card.Text>
-                                <Link to={`/chefs/${chef.chef_id}`}><Button variant="outline-warning">View Recepies</Button></Link>
+                                <Link to={`/chefs/${chef.chef_id}`} data={chef}><Button variant="outline-warning">View Recepies</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>)
