@@ -6,6 +6,7 @@ import Blog from '../Blog';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from './Main';
 import Recepies from '../Recepies';
+import Error from '../Error';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog></Blog>
       },
+      {
+        path:"*",
+        element:<Error></Error>
+      }
     ],
   },
   {
@@ -39,8 +44,16 @@ const router = createBrowserRouter([
         path: ":id",
         element: <Recepies></Recepies>,
         loader: ({params}) => fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${params.id}`)
+      },
+      {
+        path:"*",
+        element:<Error></Error>
       }
     ]
+  },
+  {
+    path:"*",
+    element:<Error></Error>
   }
 
 ]);

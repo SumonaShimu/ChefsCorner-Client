@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardGroup, Carousel, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { FcApproval, FcDebian, FcLike } from "react-icons/fc";
-import { FaStarHalfAlt } from "react-icons/fa";
-import { GiForkKnifeSpoon } from 'react-icons/gi';
+import { FaRegGrinHearts, FaStarHalfAlt } from "react-icons/fa";
+import { GiForkKnifeSpoon, GiNestedHearts } from 'react-icons/gi';
 import { SiCodechef } from "react-icons/si";
+import { toast } from 'react-toastify';
+import Recepe from './Recepe';
 const Recepies = (props) => {
     const recepies = useLoaderData();
     const chefId = recepies[0].chef_id;
@@ -23,6 +25,7 @@ const Recepies = (props) => {
         setChef(newchef)
     },[newchef]);
     console.log("chef :", chef)
+    
     return (
         <Container className='my-5'>
             <Row xs={1} md={2} className='d-flex align-items-center justify-content-around w-100 bg-dark mb-5 rounded'>
@@ -49,32 +52,7 @@ const Recepies = (props) => {
             
 
             <Row xs={1} md={3} className="g-4">
-                {recepies.map(recepie =>
-                    <Col key={recepie.id}>
-                        <Card>
-                            <Card.Header className='text-center'>
-                                <h4>{recepie.name}</h4>
-                                <small>Ratings: {recepie.rating} <FaStarHalfAlt color={'orange'} style={{ height: '20px', width: '20px' }}></FaStarHalfAlt>
-                                </small>
-                            </Card.Header>
-                            <div className='recepies-img'>
-                                <img src={recepie.picture} className="img-fit rounded" />
-                            </div>
-                            <Card.Body>
-                                <Card.Title>Ingredients:</Card.Title>
-                                <hr />
-
-                                {
-                                    recepie.ingredients.map(item => <li><FcDebian></FcDebian> {item}</li>)
-                                }
-
-                                <Card.Title className='mt-5'>Cooking Method:</Card.Title><hr />
-                                <Card.Text className=''>
-                                    {recepie.method}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                {recepies.map(recepie =><Recepe key={recepie.id} recepie={recepie}></Recepe>
                 )}
             </Row>
         </Container >
