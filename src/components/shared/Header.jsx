@@ -28,7 +28,7 @@ const Header = () => {
                 <Nav.Item><Nav.Link eventKey="link-3"><Link to='/' eventKey="link-3" className='links'>Home</Link> </Nav.Link> </Nav.Item>
                     <Nav.Item><Nav.Link eventKey="link-1"><Link to='/blog' eventKey="link-1" className='links'>Blog</Link> </Nav.Link> </Nav.Item>
                     {user ?
-                        <Nav.Item><Button variant='warning' onClick={logOut}>Logout</Button></Nav.Item> :
+                        <Nav.Item><Button variant='outline-info' onClick={logOut}>Logout</Button></Nav.Item> :
                         <Nav.Item><Nav.Link eventKey="link-2"><Link to='/login' eventKey="link-2" className='links'>Login</Link> </Nav.Link> </Nav.Item>
                     }
                     {user ?
@@ -37,7 +37,7 @@ const Header = () => {
                             delay={{ show: 250, hide: 400 }}
                             overlay={renderTooltip}
                         >
-                            <Nav.Item><Button variant="warning" className='rounded-circle'><ImUser color={''} className='icon'></ImUser></Button></Nav.Item>
+                            <Nav.Item><Button variant="info" className='rounded-circle'><ImUser color={''} className='icon'></ImUser></Button></Nav.Item>
                         </OverlayTrigger> : <></>}
                 </Nav>
             </Container>
