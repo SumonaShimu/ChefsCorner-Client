@@ -7,6 +7,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from './Main';
 import Recepies from '../Recepies';
 import Error from '../Error';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <Recepies></Recepies>,
+        element: <PrivateRoute><Recepies></Recepies></PrivateRoute>,
         loader: ({params}) => fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${params.id}`)
       },
       {

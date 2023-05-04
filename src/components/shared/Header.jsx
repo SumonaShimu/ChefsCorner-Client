@@ -8,12 +8,12 @@ const Header = () => {
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
-            {user?user.displayName:''}
+            {user ? user.displayName : ''}
         </Tooltip>
     );
 
     return (
-        <Navbar className='bg-dark'>
+        <Navbar className='bg-dark text-white'>
             <Container>
                 <Navbar.Brand href="#home" className='d-flex align-items-center'>
                     <img
@@ -21,25 +21,23 @@ const Header = () => {
                         src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/logo.png"
                         width="50"
                         height="50"
-                        className="d-inline-block align-top"
-                    />
+                        className="d-inline-block align-top" />
                     <h2 className='text-white fw-bold nav-link'>Muri<span className="text-warning">Ghonto</span></h2>
                 </Navbar.Brand>
-                <Nav className="d-flex gap-4">
-                    <Button variant='warning'><Link to='/' className='links'>Home</Link></Button>
-                    <Button variant='warning'><Link to='/blog' className='links'>Blog</Link></Button>
+                <Nav variant="pills" colo defaultActiveKey="/" className="d-flex gap-4">
+                <Nav.Item><Nav.Link eventKey="link-3"><Link to='/' eventKey="link-3" className='links'>Home</Link> </Nav.Link> </Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="link-1"><Link to='/blog' eventKey="link-1" className='links'>Blog</Link> </Nav.Link> </Nav.Item>
                     {user ?
-                        <Button variant='warning' onClick={logOut}>Logout</Button> :
-                        <Button variant='warning'><Link to='/login' className='links'>Login</Link></Button>
+                        <Nav.Item><Button variant='warning' onClick={logOut}>Logout</Button></Nav.Item> :
+                        <Nav.Item><Nav.Link eventKey="link-2"><Link to='/login' eventKey="link-2" className='links'>Login</Link> </Nav.Link> </Nav.Item>
                     }
-
                     {user ?
                         <OverlayTrigger
                             placement="bottom"
                             delay={{ show: 250, hide: 400 }}
                             overlay={renderTooltip}
                         >
-                            <Button variant="warning" className='rounded-circle'><ImUser color={''} className='icon'></ImUser></Button>
+                            <Nav.Item><Button variant="warning" className='rounded-circle'><ImUser color={''} className='icon'></ImUser></Button></Nav.Item>
                         </OverlayTrigger> : <></>}
                 </Nav>
             </Container>

@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const { signIn, setUser, user,signInGithub,signInGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { signIn, setUser, setLoading, signInGithub, signInGoogle } = useContext(AuthContext);
     const [error, setError] = useState('')
     // sign in with email password___________________________
     const handleLogin = (event) => {
@@ -14,21 +16,27 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        console.log('login page location', location)
+        const from = location.state?.from?.pathname || '/'
+
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setError('');
                 setUser(loggedUser)
+                navigate(from, { replace: true })
+                setLoading(false);
                 form.reset();
                 toast.success("Login successful");
             })
             .catch(error => {
+                setLoading(false);
                 const msg = error.message;
                 setError(msg)
             })
     }
-    
+
     return (
         <Row className='loginbg'>
 
@@ -38,13 +46,13 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <h2 className='text-center py-4'>Please Login!</h2>
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter email" />
+                        <Form.Control type="email" name="email" placeholder="Enter email" required />
 
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Password" />
+                        <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Remember me" />

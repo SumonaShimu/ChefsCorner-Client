@@ -24,7 +24,6 @@ const Recepies = (props) => {
     useEffect(()=>{
         setChef(newchef)
     },[newchef]);
-    console.log("chef :", chef)
     
     return (
         <Container className='my-5'>

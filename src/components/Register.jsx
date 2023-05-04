@@ -5,7 +5,7 @@ import { AuthContext } from './providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const { createUser, setUser, updateUserName } = useContext(AuthContext);
+    const { createUser, setUser, updateUserName,setLoading } = useContext(AuthContext);
     const [error, setError] = useState('')
     const handleRegister = (event) => {
         event.preventDefault();
@@ -18,17 +18,20 @@ const Register = () => {
         if (password !== password2) toast.error("Please retype the same password!");
         else if (password.length < 6) toast.error("Password must contain at least 6 letters.");
         else {
+            
             createUser(email, password)
                 .then(result => {
                     const createdUser = result.user;
                     console.log(createdUser);
                     setUser(createdUser);
                     setError('');
+                    setLoading(false);
                     form.reset();
                     if(name) updateUserName(name);
                     toast.success("Reg successfull");
                 })
                 .catch(error => {
+                    setLoading(false);
                     const msg = error.message;
                     setError(msg)
                 })

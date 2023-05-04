@@ -58,7 +58,8 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         setLoading(true);
         setUser(null)
-        toast.dismiss('logged Out')
+        toast.success('logged Out')
+        setLoading(false);
         return signOut(auth);
     }
 
@@ -78,6 +79,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        setLoading,
         createUser,
         signIn,
         signInGithub,
