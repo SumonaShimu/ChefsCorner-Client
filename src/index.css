@@ -1,14 +1,10 @@
-.mainBg {
+/* .mainBg {
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
-.bgred {
-    background-color: #ffffff;
-    min-height: 100px;
-}
 
 .img-fit {
     object-fit: cover;
@@ -16,12 +12,8 @@
     width: 100%;
 }
 
-.bggrey{
+.bggrey {
     background-color: rgba(11, 19, 22, 0.441);
-}
-
-.bgReg {
-    background-color: rgba(17, 26, 43, 0.726);
 }
 
 li {
@@ -30,17 +22,11 @@ li {
 
 .links {
     text-decoration: none;
-    color: rgb(255, 0, 0);
+    color: black;
     font-weight: 500;
 }
 
-.links:hover {
-    background-color: orange;
-    color: rgb(100, 1, 1);
-    padding: 0 10px;
-    border-radius: 10px;
-}
-
+/* banner section */
 .banner-container {
     min-height: 100vh;
     width: 100%;
@@ -82,12 +68,17 @@ li {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 /* registration */
-.regBg {
+.regBody{
     background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/bg4.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.bgReg {
+    background-color: rgba(17, 26, 43, 0.726);
 }
 
 /* recepies */
@@ -96,6 +87,7 @@ li {
     width: 100%;
     padding: 20px;
 }
+
 /* media query */
 @media screen and (max-width: 768px) {
     .text-warning {

@@ -5,8 +5,9 @@ import { AuthContext } from './providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const { signIn, setUser, user } = useContext(AuthContext);
+    const { signIn, setUser, user,signInGithub,signInGoogle } = useContext(AuthContext);
     const [error, setError] = useState('')
+    // sign in with email password___________________________
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -27,6 +28,7 @@ const Login = () => {
                 setError(msg)
             })
     }
+    
     return (
         <Row className='loginbg'>
 
@@ -53,13 +55,13 @@ const Login = () => {
                         New to this website? Please <Link to='/register'>Register</Link>
                     </small>
                     <br />
-                    <Button variant="outline-warning" onClick={handleGoogleLogin} className='w-100 rounded-pill px-5 my-3 mx-auto d-block'> Login with Google </Button>
-                  
-                    <Button variant="outline-warning" onClick={handleGithubLogin} className='w-100 rounded-pill px-5 mx-auto d-block'> Login with GitHub</Button>
-                    
+                    <Button variant="outline-warning" onClick={signInGoogle} className='w-100 rounded-pill px-5 my-3 mx-auto d-block'> Login with Google </Button>
+
+                    <Button variant="outline-warning" onClick={signInGithub} className='w-100 rounded-pill px-5 mx-auto d-block'> Login with GitHub</Button>
+
                 </Form>
             </Col>
-            
+
         </Row>
 
     );

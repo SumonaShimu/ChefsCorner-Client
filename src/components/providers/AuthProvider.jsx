@@ -1,13 +1,16 @@
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../../configFirebase/firebase.config';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext(null);
 
-const auth = getAuth(app);
 
+const auth = getAuth(app);
+const gibhubProvider= new GithubAuthProvider();
+const googleProvider= new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,8 +25,40 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    const signInGithub=()=>{
+        signInWithPopup(auth,gibhubProvider)
+        .then(res=>{
+            console.log(res.user);
+            setUser(res.user);
+            toast.success('Github Signin successful')
+        })
+        .catch(err=>console.log(err.message))
+    }
+
+
+    const signInGoogle=()=>{
+        signInWithPopup(auth,googleProvider)
+        .then(res=>{
+            console.log(res.user);
+            setUser(res.user);
+            toast.success('Google Signin successful')
+        })
+        .catch(err=>console.log(err.message))
+    }
+
+    const updateUserName=(name)=>{
+        updateProfile(auth.currentUser, {
+            displayName: `${name}`
+          }).then(() => {
+            console.log('displayname updated')
+          }).catch((error) => {
+            console.log(error.message)
+          });
+    }
     const logOut = () => {
         setLoading(true);
+        setUser(null)
+        toast.dismiss('logged Out')
         return signOut(auth);
     }
 
@@ -45,8 +80,11 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         signIn,
+        signInGithub,
+        signInGoogle,
         logOut,
-        setUser
+        setUser,
+        updateUserName
     }
     return (
 

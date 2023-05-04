@@ -5,7 +5,7 @@ import { AuthContext } from './providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const { createUser, setUser, user } = useContext(AuthContext);
+    const { createUser, setUser, updateUserName } = useContext(AuthContext);
     const [error, setError] = useState('')
     const handleRegister = (event) => {
         event.preventDefault();
@@ -22,9 +22,10 @@ const Register = () => {
                 .then(result => {
                     const createdUser = result.user;
                     console.log(createdUser);
-                    setUser(createdUser)
+                    setUser(createdUser);
                     setError('');
                     form.reset();
+                    if(name) updateUserName(name);
                     toast.success("Reg successfull");
                 })
                 .catch(error => {
@@ -36,7 +37,7 @@ const Register = () => {
     return (
      
 
-            <Row className='regBg'>
+            <Row className='regBody'>
 
                 <Col lg={4} md={8} className='mx-auto text-warning'>
                     <Form onSubmit={handleRegister} className='my-5 p-5 rounded bgReg'>
@@ -47,7 +48,6 @@ const Register = () => {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>User Name</Form.Label>
                             <Form.Control type="Text" name="name" placeholder="Your Name" />
-
                         </Form.Group>
 
                         {/* email */}
