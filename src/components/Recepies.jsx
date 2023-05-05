@@ -1,43 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Card, CardGroup, Carousel, Col, Container, Row } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Card, Container, Row } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { FcApproval, FcDebian, FcLike } from "react-icons/fc";
-import { FaRegGrinHearts, FaStarHalfAlt } from "react-icons/fa";
 import { GiForkKnifeSpoon, GiNestedHearts } from 'react-icons/gi';
 import { SiCodechef } from "react-icons/si";
-import { toast } from 'react-toastify';
 import Recepe from './Recepe';
+import LazyLoad from 'react-lazy-load';
+import { AuthContext } from './providers/AuthProvider';
+
+
 const Recepies = () => {
     const recepies = useLoaderData();
     const chefId = recepies[0].chef_id;
     const [chefs, setChefs] = useState([]);
-    const [chef, setChef] = useState(null);
+    //const [chef, setChef] = useState(null);
     // load chef information
-    fetch('https://project-murighonto-server-sumonashimu.vercel.app/chefs')
-        .then(response => response.json())
-        .then(data => {
-            setChefs(data)
-        })
-        .catch(error => console.log(error));
-    const chefarray = chefs.filter(item => item.chef_id == chefId);
-    const newchef=chefarray[0];
-    useEffect(()=>{
-        setChef(newchef)
-    },[newchef]);
-    
+    // fetch('https://project-murighonto-server-sumonashimu.vercel.app/chefs')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setChefs(data)
+    //     })
+    //     .catch(error => console.log(error));
+    const { allchefs } = useContext(AuthContext);
+    const chefarray = allchefs.filter(item => item.chef_id == chefId);
+    console.log('allchefs from context:', allchefs);
+    const chef = chefarray[0];
+    // useEffect(()=>{
+    //     setChef(newchef)
+    // },[newchef]);
+    console.log(chef);
     return (
         <Container className='my-5'>
             <Row xs={1} md={2} className='d-flex align-items-center justify-content-around w-100 bg-dark mb-5 rounded'>
-                <div className='p-3 bg-dark' style={{width:'300px'}}>
-                    <img src={chef?.picture}className='rounded' style={{width:'100%'}}/>
+                {/* ---------------------chef Image------------------- */}
+                <div className='p-3 bg-dark' style={{ width: '300px' }}>
+                    <LazyLoad onContentVisible={() => { console.log('Lazy Chef loaded!!') }}>
+                        <img src={chef?.picture} className='rounded' style={{ width: '100%' }} />
+                    </LazyLoad>
                 </div>
-                <Card style={{border:'0'}} className='bg-dark text-white'>
-                    <Card.Body style={{border:'0'}}>
-                    <h2 className='bg-warning p-3 rounded text-dark'>
-                    <SiCodechef style={{fontSize:"100px"}}></SiCodechef>
-                        Chef {chef?.name}
-                    
-                    </h2><hr></hr>
+                {/* -----------------chef info------------------------- */}
+                <Card style={{ border: '0' }} className='bg-dark text-white'>
+                    <Card.Body style={{ border: '0' }}>
+                        <h2 className='bg-warning p-3 rounded text-dark'>
+                            <SiCodechef style={{ fontSize: "100px" }}></SiCodechef>
+                            Chef {chef?.name}
+
+                        </h2><hr></hr>
                         <Card.Text>
                             <li><FcApproval></FcApproval> {chef?.experience} years of experience</li>
                             <li><GiForkKnifeSpoon color={'orange'}></GiForkKnifeSpoon> {chef?.recipes} recepies </li>
@@ -48,9 +56,9 @@ const Recepies = () => {
                     </Card.Body>
                 </Card>
             </Row>
-            
+            {/*-------------------chefs recepies----------------- */}
             <Row xs={1} md={3} className="g-4">
-                {recepies.map(recepie =><Recepe key={recepie.id} recepie={recepie}></Recepe>
+                {recepies.map(recepie => <Recepe key={recepie.id} recepie={recepie}></Recepe>
                 )}
             </Row>
         </Container >

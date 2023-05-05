@@ -3,9 +3,8 @@ import { Container, Spinner } from 'react-bootstrap';
 import Banner from '../Banner';
 import Aboutus from '../Aboutus';
 import Chefcards from '../Chefcards';
-
 import Popular from '../Popular';
-import { AuthContext } from '../providers/AuthProvider';
+
 
 const Main = () => {
     return (

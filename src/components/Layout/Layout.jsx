@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Header from '../shared/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Footer from '../shared/Footer';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +8,10 @@ import { AuthContext } from '../providers/AuthProvider';
 import { Spinner } from 'react-bootstrap';
 
 const Layout = () => {
-    const {loading}=useContext(AuthContext);
+    const {loading,setAllchefs}=useContext(AuthContext);
+    const chefs = useLoaderData();
+    setAllchefs(chefs);
+    console.log(chefs)
     return (
         <div>
             <ToastContainer />
