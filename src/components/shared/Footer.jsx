@@ -4,7 +4,7 @@ import { SlSocialInstagram, SlSocialTwitter, SlSocialYoutube } from "react-icons
 const Footer = () => {
     return (
         <div className='bg-dark' style={{fontSize:'30px'}}>
-        <Container className='d-flex justify-content-between align-items-center p-4 w-100 text-white'>
+        <Container className='d-flex flexColumn justify-content-between align-items-center p-4 w-100 text-white'>
             <h6>&copy;2023 MuriGhonto. All Rights Reserved</h6>
             <div>
             <div className='d-flex gap-2 text-center'>

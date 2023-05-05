@@ -47,7 +47,6 @@ li {
 
 /* aboutUs */
 .aboutus {
-    min-height: 100vh;
     text-align: justify;
 }
 .card-container{
