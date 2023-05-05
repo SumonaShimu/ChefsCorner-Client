@@ -46,9 +46,18 @@ li {
 }
 
 /* aboutUs */
-.about {
-    display: flex;
-    margin: 0 auto;
+.aboutus {
+    min-height: 100vh;
+    text-align: justify;
+}
+.card-container{
+    min-width: 50%;
+}
+.about-card{
+    margin: 0;
+    padding: .5rem;
+    width: 50%;
+    height: 300px;
 }
 
 /* chef cards */
@@ -111,5 +120,8 @@ li {
     }
     .flexColumn{
         flex-direction: column;
+    }
+    .card-container{
+        max-width: 100%;
     }
 }

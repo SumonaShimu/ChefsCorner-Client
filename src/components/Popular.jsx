@@ -14,10 +14,10 @@ const Popular = () => {
     let newrecepe;
     if (recepies) newrecepe = recepies.slice(0, 6);
     return (
-        <Container className='text-center d-block my-5'>
+        <Container className='text-center my-5 py-5'>
             <h1 className='banner-title my-4'>Popular on Our Site</h1>
-            <p>Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there</p>
-            <Row xs={2} md={3} className="g-4" style={{ border: '0' }}>
+            <p className='py-3'>Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there</p>
+            <Row xs={2} md={3} className="g-4 mt-5" style={{ border: '0' }}>
                 {newrecepe.map(item => (
                     <Col key={item.id} className='recepe-card' >
                         <Card className='h-100' style={{ border: '0' }}>
@@ -37,7 +37,7 @@ const Popular = () => {
                     </Col>
                 ))}
             </Row>
-                <Button variant='warning'>Show All Recepies</Button>
+                <Button variant='warning' className='mt-5'>Show All Recepies</Button>
         </Container>
     );
 };

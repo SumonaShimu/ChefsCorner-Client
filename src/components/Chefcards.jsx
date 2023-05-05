@@ -10,7 +10,7 @@ import { AuthContext } from './providers/AuthProvider';
 const Chefcards = () => {
     const {allchefs}=useContext(AuthContext);
     return (
-        <Container className='mt-5'>
+        <Container className='my-5'>
             <div className='pb-5'>
                 <h1 className='banner-title text-center d-block'>Meet Our Chefs</h1>
                 <p className='text-center'>Bangali quisine imaiipact are worldwide and datang arovem theme with there.</p></div>

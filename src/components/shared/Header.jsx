@@ -15,16 +15,15 @@ const Header = () => {
     return (
         <Navbar expand="sm" className='bg-dark text-white'>
             <Container fluid="xl" className='flexColumn' >
-                <Navbar.Brand href="#home" className='d-flex  align-items-center'>
+                <Navbar.Brand href="/" className='d-flex  align-items-center'>
                     <img
                         alt=""
-                        src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/logo.png"
-                        width="50"
-                        height="50"
+                        src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/logoBangla.png"
+                        width="280"
+                        height="100"
                         className="d-inline-block align-top" />
-                    <h2 className='text-white fw-bold nav-link'>Muri<span className="text-warning">Ghonto</span></h2>
                 </Navbar.Brand>
-                <Nav variant="pills" defaultActiveKey="/" className="d-flex gap-3">
+                <Nav variant="pills" defaultActiveKey="/" className="d-flex gap-2 text-center">
                 <Nav.Item><Nav.Link eventKey="link-1"><Link to='/' eventKey="link-1" className='links'>Home</Link> </Nav.Link> </Nav.Item>
                     <Nav.Item><Nav.Link eventKey="link-2"><Link to='/blog' eventKey="link-2" className='links'>Blog</Link> </Nav.Link> </Nav.Item>
                     {user ?
