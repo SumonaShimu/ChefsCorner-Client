@@ -7,7 +7,7 @@ const Popular = () => {
     fetch('https://project-murighonto-server-sumonashimu.vercel.app/recepies')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             setRecepies(data)
         })
         .catch(error => console.error(error));
@@ -19,7 +19,7 @@ const Popular = () => {
             <p>Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there</p>
             <Row xs={2} md={3} className="g-4" style={{ border: '0' }}>
                 {newrecepe.map(item => (
-                    <Col className='recepe-card' >
+                    <Col key={item.id} className='recepe-card' >
                         <Card className='h-100' style={{ border: '0' }}>
                             <Card.Img variant="top" src={item.picture} className='popular-img mx-auto' />
                             <Card.Body>

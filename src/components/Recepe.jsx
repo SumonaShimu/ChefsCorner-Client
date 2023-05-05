@@ -22,7 +22,7 @@ const Recepe = ({recepie}) => {
             setClicked(true);
     }
     return (
-        <Col key={recepie.id}>
+        <Col>
             <Card>
                 <Card.Header className='text-center'>
                     <h4>{recepie.name}</h4>

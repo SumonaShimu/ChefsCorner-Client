@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Main></Main>,
-        loader: () => fetch('https://project-murighonto-server-sumonashimu.vercel.app/chefs').then(res=>res.json())
+        loader: () => fetch('https://project-murighonto-server-sumonashimu.vercel.app/chefs').then(res => res.json())
       },
       {
         path: "/login",
@@ -31,30 +31,36 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog></Blog>
       },
+
       {
-        path:"*",
-        element:<Error></Error>
+        path: "/chefs/:id",
+        element: <PrivateRoute><Recepies></Recepies></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${params.id}`),
+      },
+
+      {
+        path: "*",
+        element: <Error></Error>
       }
     ],
   },
+
+
+  // {
+  //   path: "/chefs",
+  //   element: <Layout></Layout>,
+  //   children: [
+  //     {
+  //       path: ":id",
+  //       element: <PrivateRoute><Recepies></Recepies></PrivateRoute>,
+  //       loader: ({params}) => fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${params.id}`)
+  //     }
+  //   ]
+  // },
+
   {
-    path: "/chefs",
-    element: <Layout></Layout>,
-    children: [
-      {
-        path: ":id",
-        element: <PrivateRoute><Recepies></Recepies></PrivateRoute>,
-        loader: ({params}) => fetch(`https://project-murighonto-server-sumonashimu.vercel.app/chefs/${params.id}`)
-      },
-      {
-        path:"*",
-        element:<Error></Error>
-      }
-    ]
-  },
-  {
-    path:"*",
-    element:<Error></Error>
+    path: "*",
+    element: <Error></Error>
   }
 
 ]);

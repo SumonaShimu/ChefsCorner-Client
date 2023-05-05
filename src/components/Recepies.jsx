@@ -7,7 +7,7 @@ import { GiForkKnifeSpoon, GiNestedHearts } from 'react-icons/gi';
 import { SiCodechef } from "react-icons/si";
 import { toast } from 'react-toastify';
 import Recepe from './Recepe';
-const Recepies = (props) => {
+const Recepies = () => {
     const recepies = useLoaderData();
     const chefId = recepies[0].chef_id;
     const [chefs, setChefs] = useState([]);
@@ -49,7 +49,6 @@ const Recepies = (props) => {
                 </Card>
             </Row>
             
-
             <Row xs={1} md={3} className="g-4">
                 {recepies.map(recepie =><Recepe key={recepie.id} recepie={recepie}></Recepe>
                 )}

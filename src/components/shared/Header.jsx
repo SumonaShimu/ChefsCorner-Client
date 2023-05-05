@@ -25,11 +25,11 @@ const Header = () => {
                     <h2 className='text-white fw-bold nav-link'>Muri<span className="text-warning">Ghonto</span></h2>
                 </Navbar.Brand>
                 <Nav variant="pills" colo defaultActiveKey="/" className="d-flex gap-4">
-                <Nav.Item><Nav.Link eventKey="link-3"><Link to='/' eventKey="link-3" className='links'>Home</Link> </Nav.Link> </Nav.Item>
-                    <Nav.Item><Nav.Link eventKey="link-1"><Link to='/blog' eventKey="link-1" className='links'>Blog</Link> </Nav.Link> </Nav.Item>
+                <Nav.Item><Nav.Link eventKey="link-1"><Link to='/' eventKey="link-1" className='links'>Home</Link> </Nav.Link> </Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="link-2"><Link to='/blog' eventKey="link-2" className='links'>Blog</Link> </Nav.Link> </Nav.Item>
                     {user ?
                         <Nav.Item><Button variant='outline-info' onClick={logOut}>Logout</Button></Nav.Item> :
-                        <Nav.Item><Nav.Link eventKey="link-2"><Link to='/login' eventKey="link-2" className='links'>Login</Link> </Nav.Link> </Nav.Item>
+                        <Nav.Item><Nav.Link eventKey="link-3"><Link to='/login' eventKey="link-3" className='links'>Login</Link> </Nav.Link> </Nav.Item>
                     }
                     {user ?
                         <OverlayTrigger
