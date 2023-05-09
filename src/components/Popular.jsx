@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const Popular = () => {
     const [recepies, setRecepies] = useState([])
     fetch('https://project-murighonto-server-sumonashimu.vercel.app/recepies')
@@ -16,7 +17,7 @@ const Popular = () => {
     return (
         <Container className='text-center my-5 py-5'>
             <h1 className='banner-title my-4'>Popular on Our Site</h1>
-            <p className='py-3'>Conveniently imaiipact are worldwide andng datang arovem theme with there.Conveniently imaiipact are worldwide andng datang arovem theme with there</p>
+            <p className='py-3'> The ultimate destination to explore the authentic and mouthwatering traditional recipes of Bangladeshi cuisine.</p>
             <Row xs={2} md={3} className="g-4 mt-5" style={{ border: '0' }}>
                 {newrecepe.map(item => (
                     <Col key={item.id} className='recepe-card' >
@@ -37,7 +38,7 @@ const Popular = () => {
                     </Col>
                 ))}
             </Row>
-                <Button variant='warning' className='mt-5'>Show All Recepies</Button>
+                <Link to='/recepies'><Button variant='warning' className='mt-5'>Show All Recepies</Button></Link>
         </Container>
     );
 };

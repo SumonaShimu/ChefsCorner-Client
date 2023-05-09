@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Container, Spinner } from 'react-bootstrap';
 import Banner from '../Banner';
 import Aboutus from '../Aboutus';
 import Chefcards from '../Chefcards';

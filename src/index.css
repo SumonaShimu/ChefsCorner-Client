@@ -12,7 +12,7 @@
 }
 
 .bggrey {
-    background-color: rgba(11, 19, 22, 0.441);
+    background-color: rgba(27, 30, 32, 0.566);
 }
 
 li {
@@ -23,6 +23,15 @@ li {
     text-decoration: none;
     color: white;
     font-weight: 500;
+}
+.links:hover {
+    padding: 0 8px;
+    border-radius: 20px;
+    display: block;
+    background-color: blue;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.25);
 }
 
 /* banner section */
@@ -70,10 +79,10 @@ li {
 
 /* login */
 .loginbg {
-    background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/right.jpg");
+    background-image: url("https://raw.githubusercontent.com/SumonaShimu/FoodData/main/kitchen.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position:center;
 }
 
 /* registration */
@@ -104,6 +113,23 @@ li {
     border-radius: 50%;
 }
 
+/* all recepies */
+.recepies{
+    height: 100%;
+}
+.recepies-container{
+min-height: max-content;
+}
+
+
+.smaller:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(0.9);
+  }
+button:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.075);
+  }
 /* media query */
 @media screen and (max-width: 768px) {
     .about {

@@ -8,6 +8,7 @@ import Main from './Main';
 import Recepies from '../Recepies';
 import Error from '../Error';
 import PrivateRoute from './PrivateRoute';
+import AllRecepies from '../AllRecepies';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>
+      },
+      {
+        path: "/recepies",
+        element: <PrivateRoute><AllRecepies></AllRecepies></PrivateRoute>
       },
       {
         path: "/chefs/:id",

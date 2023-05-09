@@ -26,9 +26,10 @@ const Header = () => {
                 <Nav variant="pills" defaultActiveKey="/" className="d-flex gap-2 text-center">
                 <Nav.Item><Nav.Link eventKey="link-1"><Link to='/' eventKey="link-1" className='links'>Home</Link> </Nav.Link> </Nav.Item>
                     <Nav.Item><Nav.Link eventKey="link-2"><Link to='/blog' eventKey="link-2" className='links'>Blog</Link> </Nav.Link> </Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="link-3"><Link to='/recepies' eventKey="link-3" className='links'>Recepies</Link> </Nav.Link> </Nav.Item>
                     {user ?
                         <Nav.Item><Button variant='outline-info' onClick={logOut}>Logout</Button></Nav.Item> :
-                        <Nav.Item><Nav.Link eventKey="link-3"><Link to='/login' eventKey="link-3" className='links'>Login</Link> </Nav.Link> </Nav.Item>
+                        <Nav.Item><Nav.Link eventKey="link-4"><Link to='/login' eventKey="link-4" className='links'>Login</Link> </Nav.Link> </Nav.Item>
                     }
                     {user ?
                         <OverlayTrigger

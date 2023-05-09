@@ -18,8 +18,8 @@ const Recepies = () => {
     const chef = chefarray[0];
     console.log(chef);
     return (
-        <Container className='my-5'>
-            <Row xs={1} md={2} className='d-flex align-items-center justify-content-around w-100 bg-dark mb-5 rounded'>
+        <Container className='my-5 mx-auto'>
+            <Row xs={1} md={2} className='d-flex align-items-center justify-content-around w-100 bg-dark mb-5 rounded mx-auto'>
                 {/* ---------------------chef Image------------------- */}
                 <div className='p-3 bg-dark' style={{ width: '400px' }}>
                     <LazyLoad onContentVisible={() => { console.log('Lazy Chef loaded!!') }}>

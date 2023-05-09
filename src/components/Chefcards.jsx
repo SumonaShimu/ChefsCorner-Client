@@ -13,7 +13,7 @@ const Chefcards = () => {
         <Container className='my-5'>
             <div className='pb-5'>
                 <h1 className='banner-title text-center d-block'>Meet Our Chefs</h1>
-                <p className='text-center'>Bangali quisine imaiipact are worldwide and datang arovem theme with there.</p></div>
+                <p className='text-center'>The ultimate online destination for exploring the authentic and delicious traditional recipes of Bangladeshi cuisine.</p></div>
             <Row xs={2} md={3} className="g-4">
                 {allchefs?.map(chef =>
                     <Col key={chef.chef_id}>

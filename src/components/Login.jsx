@@ -9,22 +9,22 @@ const Login = () => {
     const location = useLocation();
     const { signIn, setUser, setLoading, signInGithub, signInGoogle } = useContext(AuthContext);
     const [error, setError] = useState('')
+    
     // sign in with email password___________________________
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        const from = location.state?.from?.pathname || '/';
         console.log('login page location', location)
-        const from = location.state?.from?.pathname || '/'
-
+        
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                setUser(loggedUser)
                 console.log(loggedUser);
                 setError('');
-                setUser(loggedUser)
                 navigate(from, { replace: true })
                 setLoading(false);
                 form.reset();
@@ -35,12 +35,40 @@ const Login = () => {
                 const msg = error.message;
                 setError(msg)
             })
+
+    }
+    const handleGithubLogin = () => {
+        const from = location.state?.from?.pathname || '/';
+        signInGithub()
+            .then(res => {
+                console.log(res.user);
+                setUser(res.user);
+                const loggedUser = res.user;
+                setUser(loggedUser)
+                toast.success('Github Signin successful')
+                navigate(from, { replace: true })
+            })
+            .catch(err => console.log(err.message))
     }
 
+    const handleGoogleLogin = () => {
+        const from = location.state?.from?.pathname || '/'
+        signInGoogle()
+            .then(res => {
+                console.log(res.user);
+                setUser(res.user);
+                const loggedUser = res.user;
+                setUser(loggedUser)
+                toast.success('Google Signin successful')
+                navigate(from, { replace: true })
+            })
+            .catch(err => console.log(err.message))
+    }
     return (
-        <Row className='loginbg'>
+        <div className='loginbg'>
+        <Row className='bggrey w-100 m-0'>
 
-            <Col lg={5} md={7}>
+            <Col lg={6} md={12}>
                 <Form onSubmit={handleLogin} className='px-10 my-5 p-5 rounded bggrey text-warning'>
                     {error ? <h6 className='text-danger text-center p-3 rounded'> {error} </h6> : ''}
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -63,15 +91,17 @@ const Login = () => {
                         New to this website? Please <Link to='/register'>Register</Link>
                     </small>
                     <br />
-                    <Button variant="outline-warning" onClick={signInGoogle} className='w-100 rounded-pill px-5 my-3 mx-auto d-block'> Login with Google </Button>
+                    <Button variant="outline-warning" onClick={handleGoogleLogin} className='w-100 rounded-pill px-5 my-3 mx-auto d-block'> Login with Google </Button>
 
-                    <Button variant="outline-warning" onClick={signInGithub} className='w-100 rounded-pill px-5 mx-auto d-block'> Login with GitHub</Button>
+                    <Button variant="outline-warning" onClick={handleGithubLogin} className='w-100 rounded-pill px-5 mx-auto d-block'> Login with GitHub</Button>
 
                 </Form>
             </Col>
-
+            <Col lg={5} md={12} className='d-flex p-5'>
+            <img src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/eat.gif" className="gif m-5 p-5 w-100 h-100" />
+            </Col>
         </Row>
-
+        </div>
     );
 };
 

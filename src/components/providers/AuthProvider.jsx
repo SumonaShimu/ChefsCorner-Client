@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 
 export const AuthContext = createContext(null);
 
-
 const auth = getAuth(app);
 const gibhubProvider= new GithubAuthProvider();
 const googleProvider= new GoogleAuthProvider();
@@ -26,24 +25,14 @@ const AuthProvider = ({ children }) => {
     }
 
     const signInGithub=()=>{
-        signInWithPopup(auth,gibhubProvider)
-        .then(res=>{
-            console.log(res.user);
-            setUser(res.user);
-            toast.success('Github Signin successful')
-        })
-        .catch(err=>console.log(err.message))
+        setLoading(true);
+        return signInWithPopup(auth,gibhubProvider)
     }
 
 
     const signInGoogle=()=>{
-        signInWithPopup(auth,googleProvider)
-        .then(res=>{
-            console.log(res.user);
-            setUser(res.user);
-            toast.success('Google Signin successful')
-        })
-        .catch(err=>console.log(err.message))
+        setLoading(true);
+        return signInWithPopup(auth,googleProvider)
     }
 
     const updateUserName=(name)=>{
