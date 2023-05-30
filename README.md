@@ -1,4 +1,4 @@
-# Project MuriGhonto 
+# Chefs-Corner
 This project is built using React Boostrap and includes the following features.
 ## Features
 * It has Component-based architecture
