@@ -18,9 +18,9 @@ const Header = () => {
                 <Navbar.Brand href="/" className='d-flex  align-items-center'>
                     <img
                         alt=""
-                        src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/logoBangla.png"
-                        width="280"
-                        height="100"
+                        src="https://raw.githubusercontent.com/SumonaShimu/FoodData/main/cc.png"
+                        width="200"
+                        height="70"
                         className="d-inline-block align-top" />
                 </Navbar.Brand>
                 <Nav variant="pills" defaultActiveKey="/" className="d-flex gap-2 text-center">
