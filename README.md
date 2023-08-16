@@ -1,5 +1,5 @@
 # Chefs-Corner
-This project is built using React Boostrap and includes the following features.
+This project is built using React Bootstrap and includes the following features.
 ## Features
 * It has Component-based architecture
 * It is based on Bangladeshi cuisine
@@ -9,4 +9,4 @@ This project is built using React Boostrap and includes the following features.
 * Responsive design for mobile and desktop devices
 * Integration with third-party APIs
 ## Live Link
-https://murighonto-101.web.app/
+https://chefscorner-101.web.app
